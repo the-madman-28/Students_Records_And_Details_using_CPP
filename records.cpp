@@ -1,12 +1,12 @@
-/* ||     STUDENTS' RECORDS AND DETAILS     ||
-   ||	  -----------------------------     ||
-   ||		         MADE BY -              ||
-   ||			     ---------              ||
-   ||	            NITIN BABU              ||
-   ||	            ----------              ||
-   ||	          ROLL NO:-12122            ||
-   ||	         CLASS:- XII - 'A'          ||
-   ||_______________________________________||
+/* ||  STUDENTS' RECORDS AND DETAILS  ||
+   || ------------------------------- ||
+   ||		  MADE BY -           ||
+   ||	         ----------           ||
+   ||	         NITIN BABU           ||
+   ||	        ------------          ||
+   ||	       ROLL NO:-12122         ||
+   ||	      CLASS:- XII - 'A'       ||
+   ||_________________________________||
 
 ************************* HEADER FILES REQUIRED/USED *********************** */
 #include<bits/stdc++.h>
@@ -24,19 +24,21 @@ using namespace std;
 
 class file
 {
-  int roll;          //roll no of the student
-  float age;         //age of the student
-  char name[100];    //name of the student
-  
+  int roll;              //roll no of the student
+  float age;             //age of the student
+  int adm;               //admission of the student
+  char gender[10];       //gender of the student
+  char name[25];         //name of the student
+  char categ[100];         //address of the student
+  int cl;                //class of the student
   public:
-  void input();      //function for input of details of a student
-  void show();       //function for showing of details of a student
+  void input();          //function for input of details of a student
+  void show();           //function for showing of details of a student
   char *getn()
-  {                  //to terturn name when found
+  {                      //to to return name when found
   return name;
   }
-};
-file fileobj;        //object of the class FILE
+}fileobj;               //object of the class FILE
 
 //---------------------------- CLASS OVER ----------------------------------
 
@@ -44,12 +46,20 @@ file fileobj;        //object of the class FILE
 
 void file ::input()
 {
-cout<<"Enter roll";
+cout<<"\n Enter the  ADMISSION NUMBER of the student:- ";
+cin>>adm;
+cout<<"\n Enter the CLASS of the student:- ";
+cin>>cl;
+cout<<"\n Enter ROLL NUMBER .of the student:- ";
 cin>>roll;
-cout<<"Enter age";
-cin>>age;
-cout<<"Enter name:";
+cout<<"\n Enter the NAME of the student:- ";
 cin>>name;
+cout<<"\n Enter the GENDER of the student:- ";
+cin>>gender;
+cout<<"\n Enter the AGE of the student:- ";
+cin>>age;
+cout<<"\n Enter the CATEGORY of the student:- ";
+cin>>categ;
 }
 
 //************************ INPUT FUNCTION OVER *****************************
@@ -58,9 +68,13 @@ cin>>name;
 
 void file::show()
 {
-cout<<"Roll==> "<<roll<<endl;
-cout<<"Age==> "<<age<<endl;
-cout<<"Name==> "<<name<<endl;
+cout<<"\n ADMISSION NUMBER:- "<<adm;
+cout<<"\n CLASS:- "<<cl;
+cout<<"\n ROLL NUMBER:- "<<roll;
+cout<<"\n NAME:- "<<name;
+cout<<"\n GENDER:- "<<gender;
+cout<<"\n AGE:- "<<age;
+cout<<"\n CATEGORY:- "<<categ<<endl;
 }
 
 //------------------------ OUTPUT FUNCTION OVER ----------------------------
@@ -88,14 +102,14 @@ system("cls");
 cout<<"\n\t             WELCOME TO STUDENTS' RECORD DATABASE\n";
 cout<<"\t             KENDRIYA VIDYALAYA AIR FORCE STATION\n";
 cout<<"\t                        PUNE - 411032\n";
-cout<<"1. Create data file"<<endl;
-cout<<"2. Add new record in file"<<endl;
-cout<<"3. Display Record from data file"<<endl;
-cout<<"4. Display Particular Record from data file"<<endl;
-cout<<"5. Modify Particular Record from data file"<<endl;
-cout<<"6. Delete Particular Record from data file"<<endl;
+cout<<"1. Create new register and enter records"<<endl;
+cout<<"2. Enter new records in opened register"<<endl;
+cout<<"3. Display all students' records from register"<<endl;
+cout<<"4. Display Particular Record from register"<<endl;
+cout<<"5. Modify Particular Record from register"<<endl;
+cout<<"6. Delete Particular Record from register"<<endl;
 cout<<"7. Exit from the program"<<endl;
-cout<<"Enter your Option"<<endl;
+cout<<"\n Enter your choice"<<endl;
 
 cin>>opt;   //user is entering his/her choice
 
@@ -233,7 +247,7 @@ void displayP()
 {
  char n[100];
  cout<<"Enter Name that should be searched:";
- gets(n);
+ cin>>n;
  fil.open("c:\\binary.dat",ios::in|ios::binary);
  if(!fil)
  {
@@ -270,7 +284,7 @@ void modify()
 {
  char n[100];
  cout<<"Enter Name that should be searched:";
- gets(n);
+ cin>>n;
  fil.open("c:\\binary.dat",ios::in|ios::out|ios::binary);
  if(!fil)
  {
@@ -309,7 +323,7 @@ void Delete()
 {
  char n[100];
  cout<<"Enter Name that should be Deleted:";
- gets(n);
+ cin>>n;
  ofstream o;
  ifstream fil;
  o.open("c:\\new.dat",ios::out|ios::binary);
@@ -344,246 +358,3 @@ cin.get();
 }
 
 //***************** PARTICULAR RECORD DELETION FUNCTION OVER ***************
-
-// using namespace std;
-
-// class File {
-//     int roll;          // Roll no of the student
-//     float age;         // Age of the student
-//     char name[100];    // Name of the student
-
-// public:
-//     void input();      // Function for input of details of a student
-//     void show();       // Function for showing details of a student
-
-//     char *getn() {      // To return name when found
-//         return name;
-//     }
-// };
-
-// File fileObj;          // Object of the class File
-
-// fstream file;          // Creating object of fstream
-
-// void File::input() {
-//     cout << "Enter roll, age and name: ";
-//     cin >> roll >> age;
-//     cin.ignore(); // Discard the newline character left in the buffer
-//     cin.getline(name, 100);
-// }
-
-// void File::show() {
-//     cout << "Roll==> " << roll << endl;
-//     cout << "Age==> " << age << endl;
-//     cout << "Name==> " << name << endl;
-// }
-
-// void create() {
-//     char ch = 'y';
-//     file.open("c:\\binary.dat", ios::out | ios::binary);
-//     while (ch == 'y' || ch == 'Y') {
-//         fileObj.input();
-//         file.write(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         cout << "Do you want to Continue....";
-//         cin >> ch;
-//     }
-//     file.close();
-// }
-
-// void add() {
-//     char ch = 'y';
-//     file.open("c:\\binary.dat", ios::app | ios::binary);
-//     while (ch == 'y' || ch == 'Y') {
-//         fileObj.input();
-//         file.write(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         cout << "Do you want to Continue....";
-//         cin >> ch;
-//     }
-//     file.close();
-// }
-
-// void display() {
-//     file.open("c:\\binary.dat", ios::in | ios::binary);
-//     if (!file) {
-//         cout << "File not found";
-//         exit(0);
-//     } else {
-//         file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         while (!file.eof()) {
-//             fileObj.show();
-//             cout << "Press any key  for next Record" << endl;
-//             cin.get();
-//             file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         }
-//     }
-//     file.close();
-// }
-
-// void displayP() {
-//     char n[100];
-//     cout << "Enter Name that should be searched: ";
-//     cin.ignore(); // Discard the newline character left in the buffer
-//     cin.getline(n, 100);
-//     file.open("c:\\binary.dat", ios::in | ios::binary);
-//     if (!file) {
-//         cout << "File not Found";
-//         exit(0);
-//     } else {
-//         file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         while (!file.eof()) {
-//             if (strcmp(n, fileObj.getn()) == 0) {
-//                 fileObj.show();
-//                 cout << "Press any key ...." << endl;
-//                 cin.get();
-//             } else {
-//                 cout << "Press any key...for search" << endl;
-//                 cin.get();
-//             }
-//             file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         }
-//     }
-//     file.close();
-// }
-
-// void modify() {
-//     char n[100];
-//     cout << "Enter Name that should be searched: ";
-//     cin.ignore(); // Discard the newline character left in the buffer
-//     cin.getline(n, 100);
-//     file.open("c:\\binary.dat", ios::in | ios::out | ios::binary);
-//     if (!file) {
-//         cout << "File not Found";
-//         exit(0);
-//     } else {
-//         file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         while (!file.eof()) {
-//             if (strcmp(n, fileObj.getn()) == 0) {
-//                 file.seekg(0, ios::cur);
-//                 cout << "Enter new record.." << endl;
-//                 fileObj.input();
-//                 file.seekp(file.tellp() - sizeof(fileObj));
-//                 file.write(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//             } else {
-//                 cout << "Press any key .. for search" << endl;
-//                 cin.get();
-//             }
-//             file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         }
-//     }
-//     file.close();
-// }
-
-// void Delete() {
-//     char n[100];
-//     cout << "Enter Name that should be Deleted: ";
-//     cin.ignore(); // Discard the newline character left in the buffer
-//     cin.getline(n, 100);
-//     ofstream o;
-//     ifstream fil;
-//     o.open("c:\\new.dat", ios::out | ios::binary);
-//     file.open("c:\\binary.dat", ios::in | ios::binary);
-//     if (!file) {
-//         cout << "File not Found";
-//         exit(0);
-//     } else {
-//         file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         while (!file.eof()) {
-//             if (strcmp(n, fileObj.getn()) != 0) {
-//                 o.write(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//             } else {
-//                 cout << "Press any key .. for search" << endl;
-//                 cin.get();
-//             }
-//             file.read(reinterpret_cast<char *>(&fileObj), sizeof(fileObj));
-//         }
-//     }
-//     file.close();
-//     o.close();
-//     remove("c:\\binary.dat");
-//     rename("c:\\new.dat", "c:\\binary.dat");
-//     cin.get();
-// }
-
-// int main() {
-//     int opt;
-//     while (1)   // Loop for giving choices to the user
-//     {
-//         system("cls"); // Clear screen
-//         cout << "\n\t             WELCOME TO STUDENTS' RECORD DATABASE\n";
-//         cout << "\t             KENDRIYA VIDYALAYA AIR FORCE STATION\n";
-//         cout << "\t                        PUNE - 411032\n";
-//         cout << "1. Create data file" << endl;
-//         cout << "2. Add new record in file" << endl;
-//         cout << "3. Display Record from data file" << endl;
-//         cout << "4. Display Particular Record from data file" << endl;
-//         cout << "5. Modify Particular Record from data file" << endl;
-//         cout << "6. Delete Particular Record from data file" << endl;
-//         cout << "7. Exit from the program" << endl;
-//         cout << "Enter your Option: ";
-
-//         cin >> opt;   // User is entering his/her choice
-
-//         switch (opt) // Cases after selecting the choice
-//         {
-//             case 1: {
-//                 create();
-//                 cout << "Display Main menu" << endl;
-//                 cin.get();
-//                 break;
-//             }
-
-//             case 2: {
-//                 add();
-//                 cout << "Display main menu" << endl;
-//                 cin.get();
-//                 break;
-//             }
-
-//             case 3: {
-//                 display();
-//                 cout << "Display main menu" << endl;
-//                 cin.get();
-//                 break;
-//             }
-
-//             case 4: {
-//                 displayP();
-//                 cout << "Display main menu" << endl;
-//                 cin.get();
-//                 break;
-//             }
-
-//             case 5: {
-//                 modify();
-//                 cout << "Display main menu" << endl;
-//                 cin.get();
-//                 break;
-//             }
-
-//             case 6: {
-//                 Delete();
-//                 cout << "Display main menu" << endl;
-//                 cin.get();
-//                 break;
-//             }
-
-//             case 7: {
-//                 system("cls"); // Clear screen
-//                 cout << "\n\n\n\n\n\n\n\n\n\n";
-//                 cout << "\t\t      \n";
-//                 cout << "\t\t       THANK YOU FOR USING OUR PROGRAM \n";
-//                 cout << "\t\t       PRESS ENTER TO EXIT THE PROGRAM \n";
-//                 cout << "\t\t      \n";
-//                 cin.get();
-//                 exit(0);
-//             }
-
-//             default: {
-//                 cout << "Wrong choice!!!!!";
-//                 cin.get();
-//                 system("cls"); // Clear screen
-//             }
-//         } // Closing switch case
-//     } // Closing while loop
-//     return 0;
-// }
